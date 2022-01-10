@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const request = async () => {
+        const data = await fetch("http://localhost:3000/api/v1/products");
+        const response = await data.json();
+        const filteredResponse = response.filter(
+          (product) => product.isBlocked === false
+        );
+        console.log(filteredResponse);
+      };
+
+      request();
+    </script>
+  </body>
+</html>
